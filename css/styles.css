@@ -383,7 +383,6 @@ figcaption {
   height: 20rem;
   background-size: cover;
   border-radius: 20px;
-  
 }
 
 .home-card p {
@@ -395,7 +394,6 @@ figcaption {
   border-radius: 20px;
   box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.719);
 }
-
 
 /* results */
 
@@ -470,7 +468,7 @@ figcaption {
   position: relative;
   width: 100%;
   height: 50px;
-  margin: 30px 0;
+  margin: 20px 0;
 }
 
 .input-box input {
@@ -513,3 +511,271 @@ figcaption {
 .submit-btn:hover {
   background: var(--g200);
 }
+
+.incorrect {
+  background-color: rgb(145, 74, 74);
+  margin-bottom: 5%;
+  padding: 2% 0 2% 0;
+  border-radius: 40px;
+  text-align: center;
+  display: none;
+}
+
+/* admin page */
+
+.main-admin {
+  background-color: var(--g950);
+  color: var(--g100);
+  min-height: 110vh;
+  display: flex;
+}
+
+.sidebar {
+  position: relative;
+  top: 0;
+  flex: 20%;
+  padding: 5% 0;
+  border-right: 1px solid var(--g100);
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.sidebar button {
+  height: 60px;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1.5rem;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+}
+
+.sidebar button:hover {
+  background-color: var(--g800);
+}
+
+.sidebar button > span {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 16px 0 12px;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: inherit;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.admin-page {
+  flex: 80%;
+  padding: 3%;
+}
+/* races display */
+
+.crud-table {
+  width: 100%;
+  border: 1px solid var(--g100);
+  border-radius: 20px;
+  table-layout: fixed;
+  font-weight: bolder;
+}
+
+.crud-table thead {
+  text-align: center;
+  background-color: var(--g700);
+  font-size: 1.25rem;
+}
+
+.crud-table th {
+  background-color: var(--g500);
+  padding: 1% 0;
+}
+
+.crud-table thead th {
+  border-radius: 20px 20px 0 0;
+  background-color: var(--g600);
+}
+
+.crud-table td {
+  text-align: center;
+  background-color: var(--g100);
+  color: var(--g800);
+  padding: 0.75% 0;
+}
+
+.crud-table tfoot th {
+  border-radius: 0 0 20px 20px;
+}
+
+.add-btn {
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.update-btn,
+.delete-btn {
+  font-family: inherit;
+  border: none;
+  border-radius: 5px;
+  padding: 1.5% 3%;
+  margin: 0 5%;
+  cursor: pointer;
+  color: var(--g50);
+}
+
+.update-btn {
+  background-color: var(--g950);
+}
+
+.delete-btn {
+  background-color: rgb(161, 74, 74);
+}
+
+.delete-modal {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+.modal-content {
+  background-color: var(--g100);
+  margin: auto;
+  width: 30%;
+  color: var(--g900);
+  border-radius: 10px;
+}
+
+.modal-header {
+  padding: 3%;
+  background-color: var(--g200);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-text {
+  padding: 3%;
+  border-bottom: 1px solid var(--g500);
+}
+
+.modal-footer {
+  padding: 3%;
+  text-align: right;
+}
+
+.delete-confirm,
+.cancel-btn {
+  font-family: inherit;
+  border: none;
+  border-radius: 5px;
+  padding: 1.5% 3%;
+  margin: 0 2%;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+}
+
+.delete-confirm{
+  background-color: rgb(161, 74, 74);
+  color: var(--g50);
+}
+
+.close-btn {
+  cursor: pointer;
+}
+
+/* edit page */
+
+.edit-page {
+  background-color: var(--g200);
+  min-height: 100vh;
+  padding: 5%;
+  color: var(--g900);
+  font-size: 1.5rem;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  width: 50%;
+  margin: auto;
+  padding: 1% 1%;
+}
+
+.edit-form h2 {
+  text-align: center;
+}
+
+.edit-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+
+.edit-input input:focus, .edit-input textarea:focus {
+  outline: none;
+}
+
+.edit-input input, .edit-input textarea {
+  border-radius: 20px;
+  border: none;
+  font-size: inherit;
+  padding: 1% 2%;
+  resize: none;
+  color: inherit;
+  font-size: 1rem;
+}
+
+.form-btns {
+  text-align: center;
+}
+
+.edit-cancel, .edit-confirm {
+  padding: 1%;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  width: 5rem;
+  color: var(--g100);
+}
+
+.edit-cancel:hover, .edit-confirm:hover {
+  cursor: pointer;
+  background-color: var(--g500);
+}
+
+.edit-cancel {
+  background-color: var(--g700);
+}
+
+.edit-confirm {
+  background-color: var(--g800);
+}
+
+
+
+

@@ -11,14 +11,14 @@
   <body>
     <div class="login-page">
       <div class="login-container">
-        <div class="form"></div>
+        <form id="login-form" >
           <h1>Login</h1>
 
           <div class="input-box">
             <input
               type="text"
               placeholder="Email"
-              
+              autocomplete="off"
               class="email"
               required
             />
@@ -34,7 +34,7 @@
             <input
               type="password"
               placeholder="Password"
-              
+              autocomplete="off"
               required
               class="password"
             />
@@ -45,19 +45,22 @@
               height="15px"
             />
           </div>
+          <div class="incorrect">Incorrect email or password! </div>
 
-          <button class="submit-btn">Login</button>
+          <button type="submit" class="submit-btn">Login</button>
+        </form>
         </div>
       </div>
     </div>
       
       <script src="/js/jsencrypt-master/bin/jsencrypt.min.js"></script>
       <script>
-
+        const loginForm = document.getElementById("login-form");
         const email = document.querySelector(".email");
         const password = document.querySelector(".password");
-        const submitBtn = document.querySelector(".submit-btn");
+        const incorrect = document.querySelector(".incorrect");
         const crypt = new JSEncrypt();
+
         crypt.setPublicKey(`-----BEGIN PUBLIC KEY-----
         MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0cZUXs/k/G0OAdHCbyqEjvxT7
         rjkRLhVrBWfrJ4HuMMlWPmXLgYQmk06KGefvHRpwiTazeOgIBpuazbUSDrZaZIMI
@@ -65,30 +68,32 @@
         dhwNxDbuGHJO0+CM0wIDAQAB
         -----END PUBLIC KEY-----`);
 
-        function encryptPassword(password) {
-          let encrypted = crypt.encrypt(password);
-          return encrypted;
-        }
-
         async function postData() {
         try {
           const response = await fetch("http://localhost:5000/api/auth/login", {
             method: "post",
-            headers: new Headers({ "Content-Type": "application/json" }),
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               email: email.value,
-              password: encryptPassword(password.value),
+              password: crypt.encrypt(password.value),
             }),
           });  
-          localStorage.setItem("accessToken", `${results.accessToken}`);
           const results = await response.json();
+          if(response.status === 200) {
+            window.location.assign("admin-main.html");
+          } else {
+            incorrect.style.display = "block";
+          }
+          localStorage.setItem("accessToken", `${results.accessToken}`);
         } catch (error) {
           console.log(error);
         }
       }
-      submitBtn.addEventListener("click", () => {
-        postData();
-      });
-      </script>
-    </body>
+
+      loginForm.addEventListener("submit", (e) => {
+      e.preventDefault(); 
+      postData();    
+    });
+    </script>
+  </body>
 </html>
