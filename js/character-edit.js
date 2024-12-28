@@ -39,7 +39,7 @@ async function addCharacter() {
     myFormData.append("location_id", `[${locationInput.value}]`);
     myFormData.append("weapon_id", `[${weaponInput.value}]`);
     myFormData.append("race_id", `${raceInput.value}`);
-    myFormData.append("image", imageInput.files[0]);
+    if (imageInput.files[0]) myFormData.append("image", imageInput.files[0]);
     const response = await fetch(`${url}characters`, {
       method: "POST",
       headers: {
@@ -47,6 +47,7 @@ async function addCharacter() {
       },
       body: myFormData,
     });
+    const results = await response.json();
     if (response.status == 201) {
       window.location.assign("http://127.0.0.1:5500/characters-table.html");
     }
@@ -63,7 +64,7 @@ async function updateCharacter() {
     myFormData.append("location_id", `[${locationInput.value}]`);
     myFormData.append("weapon_id", `[${weaponInput.value}]`);
     myFormData.append("race_id", `${raceInput.value}`);
-    myFormData.append("image", imageInput.files[0]);
+    if (imageInput.files[0]) myFormData.append("image", imageInput.files[0]);
     const response = await fetch(`${url}characters/${id}`, {
       method: "PUT",
       headers: {
@@ -71,6 +72,7 @@ async function updateCharacter() {
       },
       body: myFormData,
     });
+    const results = await response.json();
     if (response.status == 200) {
       window.location.assign("http://127.0.0.1:5500/characters-table.html");
     }

@@ -18,7 +18,6 @@ getCards();
 
 function appendData(data) {
   let mainContainer = document.getElementById("list");
-
   data.forEach((data) => {
     let a = document.createElement("a");
     let img = document.createElement("img");

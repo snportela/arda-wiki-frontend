@@ -2,7 +2,7 @@ const url = "http://localhost:5000/api/";
 
 async function displayTable() {
   try {
-    const response = await fetch(`${url}weapons`);
+    const response = await fetch(`${url}weapons?order=weapon_id`);
     const results = await response.json();
     createRows(results);
   } catch (error) {
@@ -61,12 +61,13 @@ function onDeleteRow(e) {
 
   confirmDelete.onclick = async function () {
     try {
-      row.remove();
       deleteModal.style.display = "none";
       const response = await fetch(`${url}weapons/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
+      const results = await response.json();
+      if (response.status === 200) row.remove();
     } catch (error) {
       console.log(error);
     }
@@ -80,9 +81,9 @@ addBtn.onclick = () => {
 };
 
 function onUpdateRow(e) {
-  // if (!e.target.classList.contains("update-btn")) {
-  //   return;
-  // }
+  if (!e.target.classList.contains("update-btn")) {
+    return;
+  }
   const btn = e.target;
   let row = btn.closest("tr");
   let id = row.cells.item(0).innerHTML;

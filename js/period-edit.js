@@ -25,10 +25,8 @@ if (id) {
   });
 }
 
-
 async function addPeriod() {
   try {
-    window.location.assign("http://127.0.0.1:5500/periods-table.html");
     const response = await fetch(`${url}periods`, {
       method: "POST",
       headers: {
@@ -40,6 +38,9 @@ async function addPeriod() {
         description: descriptionInput.value,
       }),
     });
+    const results = await response.json();
+    if (response.status === 201)
+      window.location.assign("http://127.0.0.1:5500/periods-table.html");
   } catch (error) {
     console.log(error);
   }
@@ -47,7 +48,6 @@ async function addPeriod() {
 
 async function updatePeriod() {
   try {
-    window.location.assign("http://127.0.0.1:5500/periods-table.html");
     const response = await fetch(`${url}periods/${id}`, {
       method: "PUT",
       headers: {
@@ -59,6 +59,9 @@ async function updatePeriod() {
         description: descriptionInput.value,
       }),
     });
+    const results = await response.json();
+    if (response.status === 200)
+      window.location.assign("http://127.0.0.1:5500/periods-table.html");
   } catch (error) {
     console.log(error);
   }

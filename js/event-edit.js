@@ -28,7 +28,6 @@ if (id) {
 
 async function addEvent() {
   try {
-    window.location.assign("http://127.0.0.1:5500/events-table.html");
     const response = await fetch(`${url}events`, {
       method: "POST",
       headers: {
@@ -41,6 +40,9 @@ async function addEvent() {
         period_id: [periodInput.value],
       }),
     });
+    const results = await response.json();
+    if (response.status === 201)
+      window.location.assign("http://127.0.0.1:5500/events-table.html");
   } catch (error) {
     console.log(error);
   }
@@ -48,7 +50,6 @@ async function addEvent() {
 
 async function updateEvent() {
   try {
-    window.location.assign("http://127.0.0.1:5500/events-table.html");
     const response = await fetch(`${url}events/${id}`, {
       method: "PUT",
       headers: {
@@ -61,6 +62,9 @@ async function updateEvent() {
         period_id: [periodInput.value],
       }),
     });
+    const results = await response.json();
+    if (response.status === 200)
+      window.location.assign("http://127.0.0.1:5500/events-table.html");
   } catch (error) {
     console.log(error);
   }

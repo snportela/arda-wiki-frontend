@@ -33,17 +33,38 @@
           <button>
             <span><a href="/weapons-table.html">Weapons</a></span>
           </button>
+          <button class="logout-btn">
+            <span><a href="/login.html"> <img src="/imgs/toppng.com-login-logout-white-icon-512x512.png" style="height: 2rem; width: 2rem;" alt="" srcset=""> Logout</a></span>
+          </button>
         </nav>
       </aside>
 
       <div class="admin-page">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex hic itaque
-          nam corporis possimus totam neque odit omnis voluptas dolores sequi
-          provident, consectetur facere vero nobis maiores eaque quas maxime.
-        </p>
+
+        <div class="admin-header">
+          <p class="welcome-text">Welcome back, </p>
+        </div>
+
+        <table class="crud-table">
+          <thead>
+            <tr>
+              <th colspan="2">Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Category</th>
+              <th>Quantity</th>
+            </tr>
+            
+          </tbody>
+          <tfoot>
+            <th colspan="2"></th>
+          </tfoot>
+        </table>
       </div>
     </div>
+    <script src="/js/main-admin.js"></script>
     <script src="/js/validate.js"></script>
   </body>
 </html>

@@ -35,7 +35,7 @@ async function addLocation() {
     myFormData.append("name", nameInput.value);
     myFormData.append("description", descriptionInput.value);
     myFormData.append("race_id", `[${raceInput.value}]`);
-    myFormData.append("image", imageInput.files[0]);
+    if (imageInput.files[0]) myFormData.append("image", imageInput.files[0]);
     const response = await fetch(`${url}locations`, {
       method: "POST",
       headers: {
@@ -43,9 +43,9 @@ async function addLocation() {
       },
       body: myFormData,
     });
-    if (response.status == 201) {
+    const results = await response.json();
+    if (response.status == 201)
       window.location.assign("http://127.0.0.1:5500/locations-table.html");
-    }
   } catch (error) {
     console.log(error);
   }
@@ -57,7 +57,7 @@ async function updateLocation() {
     myFormData.append("name", nameInput.value);
     myFormData.append("description", descriptionInput.value);
     myFormData.append("race_id", `[${raceInput.value}]`);
-    myFormData.append("image", imageInput.files[0]);
+    if (imageInput.files[0]) myFormData.append("image", imageInput.files[0]);
     const response = await fetch(`${url}locations/${id}`, {
       method: "PUT",
       headers: {
@@ -65,9 +65,9 @@ async function updateLocation() {
       },
       body: myFormData,
     });
-    if (response.status == 200) {
+    const results = await response.json();
+    if (response.status == 200)
       window.location.assign("http://127.0.0.1:5500/locations-table.html");
-    }
   } catch (error) {
     console.log(error);
   }

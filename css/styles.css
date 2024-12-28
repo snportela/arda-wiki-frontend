@@ -530,6 +530,7 @@ figcaption {
   display: flex;
 }
 
+
 .sidebar {
   position: relative;
   top: 0;
@@ -557,6 +558,17 @@ figcaption {
   padding: 0;
 }
 
+.sidebar button:last-child {
+  margin-top: 20%;
+}
+
+.sidebar button:last-child a{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .sidebar button:hover {
   background-color: var(--g800);
 }
@@ -581,7 +593,8 @@ figcaption {
 
 .admin-page {
   flex: 80%;
-  padding: 3%;
+  padding: 8% 3% 0 3%;
+  position: relative;
 }
 /* races display */
 
@@ -791,6 +804,19 @@ input[type="file"] {
   height: 40vh;
   width: 20vw;
   margin: auto;
+}
+
+.admin-header {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+}
+
+.admin-header p {
+  padding: 3% 2%;
+  font-size: 2rem;
 }
 
 

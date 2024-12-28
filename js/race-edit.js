@@ -27,7 +27,6 @@ if (id) {
 
 async function addRace() {
   try {
-    window.location.assign("http://127.0.0.1:5500/races-table.html");
     const response = await fetch(`${url}races`, {
       method: "POST",
       headers: {
@@ -39,6 +38,9 @@ async function addRace() {
         description: descriptionInput.value,
       }),
     });
+    const results = await response.json();
+    if (response.status === 201)
+      window.location.assign("http://127.0.0.1:5500/races-table.html");
   } catch (error) {
     console.log(error);
   }
@@ -46,7 +48,6 @@ async function addRace() {
 
 async function updateRace() {
   try {
-    window.location.assign("http://127.0.0.1:5500/races-table.html");
     const response = await fetch(`${url}races/${id}`, {
       method: "PUT",
       headers: {
@@ -58,6 +59,9 @@ async function updateRace() {
         description: descriptionInput.value,
       }),
     });
+    const results = await response.json();
+    if (response.status === 200)
+      window.location.assign("http://127.0.0.1:5500/races-table.html");
   } catch (error) {
     console.log(error);
   }

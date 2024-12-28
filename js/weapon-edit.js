@@ -27,7 +27,6 @@ if (id) {
 
 async function addWeapon() {
   try {
-    window.location.assign("http://127.0.0.1:5500/weapons-table.html");
     const response = await fetch(`${url}weapons`, {
       method: "POST",
       headers: {
@@ -39,6 +38,9 @@ async function addWeapon() {
         description: descriptionInput.value,
       }),
     });
+    const results = await response.json();
+    if (response.status === 201)
+      window.location.assign("http://127.0.0.1:5500/weapons-table.html");
   } catch (error) {
     console.log(error);
   }
@@ -46,7 +48,6 @@ async function addWeapon() {
 
 async function updateWeapon() {
   try {
-    window.location.assign("http://127.0.0.1:5500/weapons-table.html");
     const response = await fetch(`${url}weapons/${id}`, {
       method: "PUT",
       headers: {
@@ -58,6 +59,9 @@ async function updateWeapon() {
         description: descriptionInput.value,
       }),
     });
+    const results = await response.json();
+    if (response.status === 200)
+      window.location.assign("http://127.0.0.1:5500/weapons-table.html");
   } catch (error) {
     console.log(error);
   }
