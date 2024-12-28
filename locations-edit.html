@@ -39,7 +39,7 @@
       </aside>
 
       <form id="edit-form" class="edit-form">
-        <h2>Add Race</h2>
+        <h2>Add Location</h2>
         <div class="edit-input">
           <label for="name-input">Name</label>
           <input type="text" autocomplete="off" class="name-input" required />
@@ -53,9 +53,19 @@
           class="description-input"
           required>
           </textarea>
-          
         </div>
-        
+
+        <div class="edit-input">
+        <label for="race-input">Race</label>
+        <input type="text" autocomplete="off" class="race-input" required />
+        </div>
+
+        <div class="edit-input img-container">
+        <label for="image-input">Image</label>
+        <input type="file"  class="image-input" />
+        <img class="location-img" src="" alt="" srcset="">
+        </div>
+               
         <button type="submit" class="edit-confirm">Add</button>
 
       </form>
@@ -63,6 +73,6 @@
       </div>
     </div>
     <script src="/js/validate.js"></script>
-    <script src="/js/race-edit.js"></script>
+    <script src="/js/location-edit.js"></script>
   </body>
 </html>

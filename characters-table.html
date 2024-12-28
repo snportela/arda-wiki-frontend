@@ -8,10 +8,8 @@
     <link rel="icon" href="/imgs/silmaril-icon-removebg-preview.png" />
     <title>Arda Wiki</title>
   </head>
-
   <body>
-    <div class="edit-page">
-
+    <div class="main-admin">
       <aside class="sidebar">
         <nav>
           <button>
@@ -37,32 +35,43 @@
           </button>
         </nav>
       </aside>
+      <div class="admin-page">
+        <table class="crud-table">
+          <thead>
+            <th colspan="3">Characters</th>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Actions</th>
+            </tr>
+          </tbody>
+          <tfoot>
+            <th colspan="3">
+              <button class="add-btn" href="">&#43; Add</button>
+            </th>
+          </tfoot>
+        </table>
+      </div>
 
-      <form id="edit-form" class="edit-form">
-        <h2>Add Race</h2>
-        <div class="edit-input">
-          <label for="name-input">Name</label>
-          <input type="text" autocomplete="off" class="name-input" required />
+      <div class="delete-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            Delete item?<span class="close-btn"
+              ><img src="/imgs/Close_icon-icons.com_71857.png" alt=""
+            /></span>
+          </div>
+          <div class="modal-text">This can't be undone</div>
+          <div class="modal-footer">
+            <button class="cancel-btn">Cancel</button>
+            <button class="delete-confirm">Delete</button>
+          </div>
         </div>
-
-        <div class="edit-input">
-          <label for="description-input">Description</label>
-          
-          <textarea name="description-input" cols="30" rows="10"
-          autocomplete="off"
-          class="description-input"
-          required>
-          </textarea>
-          
-        </div>
-        
-        <button type="submit" class="edit-confirm">Add</button>
-
-      </form>
-
+      </div>
       </div>
     </div>
     <script src="/js/validate.js"></script>
-    <script src="/js/race-edit.js"></script>
+    <script src="/js/characters-table.js"></script>
   </body>
 </html>

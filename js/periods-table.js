@@ -1,10 +1,8 @@
 const url = "http://localhost:5000/api/";
-const searchParams = new URLSearchParams(window.location.search);
-const category = searchParams.get("table");
 
 async function displayTable() {
   try {
-    const response = await fetch(`${url}${category}`);
+    const response = await fetch(`${url}periods`);
     const results = await response.json();
     createRows(results);
   } catch (error) {
@@ -16,23 +14,13 @@ displayTable();
 
 const table = document.querySelector(".crud-table");
 const tbody = document.querySelector("tbody");
-const tableTitle = document.querySelector("th");
 let id = "";
 
 function createRows(data) {
   data.forEach((data) => {
-    if (category == "Characters") id = data.character_id;
-    if (category == "Locations") id = data.location_id;
-    if (category == "Races") id = data.race_id;
-    if (category == "Events") id = data.event_id;
-    if (category == "Periods") id = data.period_id;
-    if (category == "Weapons") id = data.weapon_id;
-
-    tableTitle.innerHTML = category;
-
     tbody.innerHTML += `
             <tr>
-                <td>${id}</td>
+                <td>${data.period_id}</td>
                 <td>${data.name}</td>
                 <td><button class="update-btn">Update</button><button class="delete-btn">Delete</button></td>
             </tr>
@@ -75,7 +63,7 @@ function onDeleteRow(e) {
     try {
       row.remove();
       deleteModal.style.display = "none";
-      const response = await fetch(`${url}${category}/${id}`, {
+      const response = await fetch(`${url}periods/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -88,7 +76,7 @@ function onDeleteRow(e) {
 table.addEventListener("click", onDeleteRow);
 
 addBtn.onclick = () => {
-  window.location.assign(`${category}-edit.html`);
+  window.location.assign(`periods-edit.html`);
 };
 
 function onUpdateRow(e) {
@@ -100,7 +88,7 @@ function onUpdateRow(e) {
   let id = row.cells.item(0).innerHTML;
 
   btn.onclick = () => {
-    window.location.assign(`${category}-edit.html?${category}_id=${id}`);
+    window.location.assign(`periods-edit.html?period_id=${id}`);
   };
 }
 
