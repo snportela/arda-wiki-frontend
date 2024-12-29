@@ -535,9 +535,9 @@ figcaption {
   position: relative;
   top: 0;
   flex: 20%;
-  padding: 5% 0;
   border-right: 1px solid var(--g100);
 }
+
 
 .sidebar nav {
   display: flex;
@@ -557,6 +557,21 @@ figcaption {
   text-align: left;
   padding: 0;
 }
+
+.sidebar button:first-child a{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.sidebar button:nth-child(2) a{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 
 .sidebar button:last-child {
   margin-top: 20%;
@@ -590,6 +605,7 @@ figcaption {
   flex-direction: column;
   justify-content: center;
 }
+
 
 .admin-page {
   flex: 80%;
@@ -743,7 +759,7 @@ figcaption {
   margin: 5%;
 }
 
-.edit-form h2 {
+#edit-form h2 {
   text-align: center;
 }
 

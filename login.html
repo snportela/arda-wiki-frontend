@@ -68,6 +68,12 @@
         dhwNxDbuGHJO0+CM0wIDAQAB
         -----END PUBLIC KEY-----`);
 
+        function validateEmail (email) {
+          var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if(re.test(email)) return email
+          else return false
+       };
+      
         async function postData() {
         try {
           const response = await fetch("http://localhost:5000/api/auth/login", {
@@ -81,10 +87,11 @@
           const results = await response.json();
           if(response.status === 200) {
             window.location.assign("admin-main.html");
+            localStorage.setItem("accessToken", `${results.token}`);
           } else {
             incorrect.style.display = "block";
           }
-          localStorage.setItem("accessToken", `${results.accessToken}`);
+          
         } catch (error) {
           console.log(error);
         }

@@ -1,5 +1,4 @@
 const token = localStorage.getItem("accessToken");
-const p = document.querySelector(".welcome-text");
 
 async function validateUser() {
   try {
@@ -7,7 +6,7 @@ async function validateUser() {
       headers: new Headers({ Authorization: `Bearer ${token}` }),
     });
     const results = await response.json();
-    p.innerHTML += results.users[0].name;
+
     if (response.status !== 200) {
       window.location.assign("login.html");
     }
