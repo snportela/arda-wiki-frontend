@@ -1,0 +1,60 @@
+.sidebar {
+    position: sticky;
+    height: 100vh;
+    top: 0;
+    flex: 20%;
+    border-right: 1px solid var(--g100);
+  }
+  
+  .sidebar button {
+    height: 60px;
+    width: 100%;
+    font-family: inherit;
+    font-size: 1.5rem;
+    background: transparent;
+    border: 0;
+    color: inherit;
+    text-align: left;
+  }
+  
+  .sidebar button:first-child a,
+  .sidebar button:nth-child(2) a
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .sidebar button:last-child {
+    margin-top: 20%;
+  }
+  
+  .sidebar button:last-child a{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .sidebar button:hover {
+    background-color: var(--g800);
+  }
+  
+  .sidebar button > span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0 16px 0 12px;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }  

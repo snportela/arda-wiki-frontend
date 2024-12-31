@@ -17,7 +17,7 @@ async function getCards() {
 getCards();
 
 function appendData(data) {
-  let mainContainer = document.getElementById("list");
+  let mainContainer = document.querySelector(".list");
   data.forEach((data) => {
     let a = document.createElement("a");
     let img = document.createElement("img");

@@ -1,0 +1,83 @@
+.login-page {
+    background-image: url(/imgs/login-background.webp);
+    background-size: contain;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-container {
+    width: 30%;
+    color: var(--g200);
+    border-radius: 20px;
+    padding: 5% 7%;
+    padding: 30px 40px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-container h1 {
+    font-size: 2.5rem;
+    text-align: center;
+  }
+  
+  .login-container .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0;
+  }
+  
+  .input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid var(--g50);
+    border-radius: 40px;
+    font-size: 1rem;
+    color: var(--g50);
+    padding: 2% 4% 2% 2%;
+    outline: none;
+  }
+  
+  .input-box input::placeholder {
+    color: var(--g50);
+  }
+  
+  .input-box img {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .submit-btn {
+    width: 100%;
+    height: 45px;
+    background: var(--g50);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--g950);
+    font-weight: 600;
+  }
+  
+  .submit-btn:hover {
+    background: var(--g200);
+  }
+  
+  .incorrect {
+    background-color: rgb(145, 74, 74);
+    margin-bottom: 5%;
+    padding: 2% 0 2% 0;
+    border-radius: 40px;
+    text-align: center;
+    display: none;
+  }

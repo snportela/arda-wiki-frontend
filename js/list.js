@@ -17,7 +17,7 @@ async function getItems() {
 getItems();
 
 function appendData(data) {
-  let mainContainer = document.getElementById("list");
+  let mainContainer = document.querySelector(".list");
   data.forEach((data) => {
     let a = document.createElement("a");
     mainContainer.style.display = "flex";

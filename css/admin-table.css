@@ -1,0 +1,144 @@
+.main-admin {
+    background-color: var(--g950);
+    color: var(--g100);
+    display: flex;
+  }
+
+  .admin-header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    padding-bottom: 2%;
+  }
+  
+  .admin-header p {
+    font-size: 2rem;
+  }
+
+.table-session {
+    flex: 80%;
+    padding: 3% 3% 0 3%;
+  }
+
+.crud-table {
+  width: 100%;
+  border: 1px solid var(--g100);
+  border-radius: 20px;
+  table-layout: fixed;
+  font-weight: bolder;
+}
+
+.crud-table thead {
+  text-align: center;
+  background-color: var(--g700);
+  font-size: 1.25rem;
+}
+
+.crud-table th {
+  background-color: var(--g500);
+  padding: 1% 0;
+}
+
+.crud-table thead th {
+  border-radius: 20px 20px 0 0;
+  background-color: var(--g600);
+}
+
+.crud-table td {
+  text-align: center;
+  background-color: var(--g100);
+  color: var(--g800);
+  padding: 0.75% 0;
+}
+
+.crud-table tfoot th {
+  border-radius: 0 0 20px 20px;
+}
+
+.add-btn {
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  color: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+.update-btn,
+.delete-btn {
+  font-family: inherit;
+  border: none;
+  border-radius: 5px;
+  padding: 1.5% 3%;
+  margin: 0 5%;
+  cursor: pointer;
+  color: var(--g50);
+}
+
+.update-btn {
+  background-color: var(--g950);
+}
+
+.delete-btn {
+  background-color: rgb(161, 74, 74);
+}
+
+.delete-modal {
+  text-align: center;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+}
+
+.modal-content {
+  background-color: var(--g100);
+  margin: auto;
+  width: 30%;
+  color: var(--g900);
+  border-radius: 10px;
+}
+
+.modal-header {
+  padding: 3%;
+  background-color: var(--g200);
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-text {
+  padding: 3%;
+  border-bottom: 1px solid var(--g500);
+}
+
+.modal-footer {
+  padding: 3%;
+  text-align: right;
+}
+
+.delete-confirm,
+.cancel-btn {
+  font-family: inherit;
+  border: none;
+  border-radius: 5px;
+  padding: 1.5% 3%;
+  margin: 0 2%;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+}
+
+.delete-confirm {
+  background-color: rgb(161, 74, 74);
+  color: var(--g50);
+}
+
+.close-btn {
+  cursor: pointer;
+}
