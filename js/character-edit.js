@@ -49,7 +49,9 @@ async function addCharacter() {
     });
     const results = await response.json();
     if (response.status == 201) {
-      window.location.assign("http://127.0.0.1:5500/characters-table.html");
+      window.location.assign(
+        "http://127.0.0.1:5500/admin/characters-table.html"
+      );
     }
   } catch (error) {
     console.log(error);
@@ -74,7 +76,9 @@ async function updateCharacter() {
     });
     const results = await response.json();
     if (response.status == 200) {
-      window.location.assign("http://127.0.0.1:5500/characters-table.html");
+      window.location.assign(
+        "http://127.0.0.1:5500/admin/characters-table.html"
+      );
     }
   } catch (error) {
     console.log(error);

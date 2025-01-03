@@ -6,18 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/admin/nav.css" />
-    <link rel="stylesheet" href="/css/admin/edit-page.css" />
+    <link rel="stylesheet" href="/css/admin/table-page.css" />
     <link rel="icon" href="/imgs/silmaril-icon-removebg-preview.png" />
     <title>Arda Wiki</title>
   </head>
-
   <body>
-    <div class="edit-page">
+    <div class="main-admin">
       <aside class="sidebar">
         <nav>
           <button>
             <span
-              ><a href="/admin-main.html"
+              ><a href="/admin/main.html"
                 ><img
                   src="/imgs/icons8-home-30.png"
                   alt=""
@@ -40,26 +39,26 @@
             >
           </button>
           <button>
-            <span><a href="/characters-table.html">Characters</a></span>
+            <span><a href="/admin/characters-table.html">Characters</a></span>
           </button>
           <button>
-            <span><a href="/locations-table.html">Locations</a></span>
+            <span><a href="/admin/locations-table.html">Locations</a></span>
           </button>
           <button>
-            <span><a href="/races-table.html">Races</a></span>
+            <span><a href="/admin/races-table.html">Races</a></span>
           </button>
           <button>
-            <span><a href="/events-table.html">Events</a></span>
+            <span><a href="/admin/events-table.html">Events</a></span>
           </button>
           <button>
-            <span><a href="/periods-table.html">Periods</a></span>
+            <span><a href="/admin/periods-table.html">Periods</a></span>
           </button>
           <button>
-            <span><a href="/weapons-table.html">Weapons</a></span>
+            <span><a href="/admin/weapons-edit.html">Weapons</a></span>
           </button>
           <button class="logout-btn">
             <span
-              ><a href="/login.html">
+              ><a href="/admin/login.html">
                 <img
                   src="/imgs/toppng.com-login-logout-white-icon-512x512.png"
                   style="height: 2rem; width: 2rem"
@@ -73,44 +72,31 @@
         </nav>
       </aside>
 
-      <div class="form-session">
-        <form id="edit-form">
-          <h2>Add Location</h2>
-          <div class="edit-input">
-            <label for="name-input">Name</label>
-            <input type="text" autocomplete="off" class="name-input" required />
-          </div>
+      <div class="table-session">
+        <div class="admin-header">
+          <p class="welcome-text">Welcome back,</p>
+        </div>
 
-          <div class="edit-input">
-            <label for="description-input">Description</label>
-
-            <textarea
-              name="description-input"
-              cols="30"
-              rows="10"
-              autocomplete="off"
-              class="description-input"
-              required
-            >
-            </textarea>
-          </div>
-
-          <div class="edit-input">
-            <label for="race-input">Races ID</label>
-            <input type="text" autocomplete="off" class="race-input" required />
-          </div>
-
-          <div class="edit-input img-container">
-            <label for="image-input">Image</label>
-            <input type="file" class="image-input" />
-            <img class="location-img" src="" alt="" srcset="" />
-          </div>
-
-          <button type="submit" class="edit-confirm">Add</button>
-        </form>
+        <table class="crud-table">
+          <thead>
+            <tr>
+              <th colspan="2">Data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Category</th>
+              <th>Quantity</th>
+            </tr>
+          </tbody>
+          <tfoot>
+            <th colspan="2"></th>
+          </tfoot>
+        </table>
       </div>
     </div>
+    <script src="/js/main-admin.js"></script>
     <script src="/js/validate.js"></script>
-    <script src="/js/location-edit.js"></script>
+    <script src="/js/get-user.js"></script>
   </body>
 </html>

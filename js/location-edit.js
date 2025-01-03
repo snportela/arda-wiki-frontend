@@ -45,7 +45,7 @@ async function addLocation() {
     });
     const results = await response.json();
     if (response.status == 201)
-      window.location.assign("http://127.0.0.1:5500/locations-table.html");
+      window.location.assign("http://127.0.0.1:5500/admin/locations-table.html");
   } catch (error) {
     console.log(error);
   }
@@ -67,7 +67,7 @@ async function updateLocation() {
     });
     const results = await response.json();
     if (response.status == 200)
-      window.location.assign("http://127.0.0.1:5500/locations-table.html");
+      window.location.assign("http://127.0.0.1:5500/admin/locations-table.html");
   } catch (error) {
     console.log(error);
   }
