@@ -1,0 +1,87 @@
+.edit-page {
+  background-color: var(--g950);
+  color: var(--g100);
+  font-size: 1.5rem;
+  display: flex;
+}
+
+.form-session {
+  flex: 80%;
+  padding: 3%;
+}
+
+#edit-form {
+  background-color: var(--g600);
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 1% 2%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+#edit-form h2 {
+  text-align: center;
+}
+
+.edit-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2%;
+}
+
+.edit-input input:focus,
+.edit-input textarea:focus {
+  outline: none;
+}
+
+.edit-input input,
+.edit-input textarea {
+  border-radius: 20px;
+  border: none;
+  font-size: inherit;
+  padding: 1% 2%;
+  resize: none;
+  font-size: 1rem;
+  color: var(--g900);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: var(--g50);
+}
+
+.edit-confirm {
+  padding: 1%;
+  margin: auto;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  width: 5rem;
+  color: var(--g900);
+  font-weight: bolder;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 2px;
+  background-color: var(--g200);
+}
+
+.edit-confirm:hover {
+  cursor: pointer;
+  background-color: var(--g100);
+}
+
+/* location edit */
+
+.img-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+input[type="file"] {
+  height: 2.75rem;
+  margin: 1% 0;
+}
+
+.location-img,
+.character-img {
+  height: 45vh;
+  width: 20vw;
+  margin: auto;
+}

@@ -1,41 +1,45 @@
 const form = document.getElementById("edit-form");
 const nameInput = document.querySelector(".name-input");
 const emailInput = document.querySelector(".email-input");
-const token = localStorage.getItem("accessToken");
-
-const url = "http://localhost:5000/api/";
+let url = "http://localhost:5000/api/";
+const id = localStorage.getItem("user_id");
+const authToken = localStorage.getItem("accessToken");
 
 async function getUserData() {
   try {
-    const response = await fetch(`${url}users/user_data`, {
+    const response = await fetch(`${url}users/${id}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
       },
     });
     const results = await response.json();
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      updateUserData(results);
-    });
     appendData(results);
+    console.log(results);
   } catch (error) {
     console.log(error);
   }
 }
+
+getUserData();
 
 function appendData(data) {
   nameInput.value = data.name;
   emailInput.value = data.email;
 }
 
-async function updateUserData(data) {
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  updateUserData();
+});
+
+async function updateUserData() {
   try {
-    const response = await fetch(`${url}users/${data.user_id}`, {
+    const response = await fetch(`${url}users/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${authToken}`,
       },
       body: JSON.stringify({
         name: nameInput.value,
@@ -43,12 +47,10 @@ async function updateUserData(data) {
       }),
     });
     const results = await response.json();
-    appendData(results);
     if (response.status === 200)
       window.location.assign("http://127.0.0.1:5500/admin-main.html");
+    getUserData();
   } catch (error) {
     console.log(error);
   }
 }
-
-getUserData();

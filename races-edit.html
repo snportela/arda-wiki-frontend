@@ -5,32 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/admin-nav.css" />
-    <link rel="stylesheet" href="/css/admin-edit.css">
+    <link rel="stylesheet" href="/css/admin/nav.css" />
+    <link rel="stylesheet" href="/css/admin/edit-page.css" />
     <link rel="icon" href="/imgs/silmaril-icon-removebg-preview.png" />
     <title>Arda Wiki</title>
   </head>
 
   <body>
     <div class="edit-page">
-
       <aside class="sidebar">
-        <nav>      
+        <nav>
           <button>
-            <span><a href="/admin-main.html"><img
-              src="/imgs/icons8-home-30.png"
-              alt=""
-              width="20px"
-              height="20px"
-            />&#8202; Home</a></span>
+            <span
+              ><a href="/admin-main.html"
+                ><img
+                  src="/imgs/icons8-home-30.png"
+                  alt=""
+                  width="20px"
+                  height="20px"
+                />&#8202; Home</a
+              ></span
+            >
           </button>
           <button>
-            <span><a href="profile-config.html"><img
-              src="/imgs/PngItem_2560255.png"
-              alt=""
-              width="15px"
-              height="15px"
-            />&#8202; Profile</a></span>
+            <span
+              ><a href="profile-config.html"
+                ><img
+                  src="/imgs/PngItem_2560255.png"
+                  alt=""
+                  width="15px"
+                  height="15px"
+                />&#8202; Profile</a
+              ></span
+            >
           </button>
           <button>
             <span><a href="/characters-table.html">Characters</a></span>
@@ -51,33 +58,45 @@
             <span><a href="/weapons-table.html">Weapons</a></span>
           </button>
           <button class="logout-btn">
-            <span><a href="/login.html"> <img src="/imgs/toppng.com-login-logout-white-icon-512x512.png" style="height: 2rem; width: 2rem;" alt="" srcset=""> Logout</a></span>
+            <span
+              ><a href="/login.html">
+                <img
+                  src="/imgs/toppng.com-login-logout-white-icon-512x512.png"
+                  style="height: 2rem; width: 2rem"
+                  alt=""
+                  srcset=""
+                />
+                Logout</a
+              ></span
+            >
           </button>
         </nav>
       </aside>
 
-      <form id="edit-form">
-        <h2>Add Race</h2>
-        <div class="edit-input">
-          <label for="name-input">Name</label>
-          <input type="text" autocomplete="off" class="name-input" required />
-        </div>
+      <div class="form-session">
+        <form id="edit-form">
+          <h2>Add Race</h2>
+          <div class="edit-input">
+            <label for="name-input">Name</label>
+            <input type="text" autocomplete="off" class="name-input" required />
+          </div>
 
-        <div class="edit-input">
-          <label for="description-input">Description</label>
-          
-          <textarea name="description-input" cols="30" rows="10"
-          autocomplete="off"
-          class="description-input"
-          required>
-          </textarea>
-          
-        </div>
-        
-        <button type="submit" class="edit-confirm">Add</button>
+          <div class="edit-input">
+            <label for="description-input">Description</label>
 
-      </form>
+            <textarea
+              name="description-input"
+              cols="30"
+              rows="10"
+              autocomplete="off"
+              class="description-input"
+              required
+            >
+            </textarea>
+          </div>
 
+          <button type="submit" class="edit-confirm">Add</button>
+        </form>
       </div>
     </div>
     <script src="/js/validate.js"></script>

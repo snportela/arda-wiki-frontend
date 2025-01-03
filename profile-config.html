@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/admin-nav.css" />
-    <link rel="stylesheet" href="/css/admin-edit.css" />
+    <link rel="stylesheet" href="/css/admin/nav.css">
+    <link rel="stylesheet" href="/css/admin/edit-page.css">
     <link rel="icon" href="/imgs/silmaril-icon-removebg-preview.png" />
     <title>Arda Wiki</title>
   </head>
@@ -55,7 +55,7 @@
         </nav>
       </aside>
 
-
+        <div class="form-session">
         <form id="edit-form">
           <h2>Profile settings</h2>
           <div class="edit-input">
@@ -71,10 +71,13 @@
           <button type="submit" class="edit-confirm">Edit</button>
 
         </form>
-  
+      </div>
      
       </div>
     </div>
+    
+    <script src="/js/validate.js"></script>
     <script src="/js/profile-config.js"></script>
+
   </body>
 </html>

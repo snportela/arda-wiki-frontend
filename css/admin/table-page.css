@@ -1,24 +1,24 @@
 .main-admin {
-    background-color: var(--g950);
-    color: var(--g100);
-    display: flex;
-  }
+  background-color: var(--g950);
+  color: var(--g100);
+  display: flex;
+}
 
-  .admin-header {
-    width: 100%;
-    position: sticky;
-    top: 0;
-    padding-bottom: 2%;
-  }
-  
-  .admin-header p {
-    font-size: 2rem;
-  }
+.admin-header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  padding-bottom: 2%;
+}
+
+.admin-header p {
+  font-size: 2rem;
+}
 
 .table-session {
-    flex: 80%;
-    padding: 3% 3% 0 3%;
-  }
+  flex: 80%;
+  padding: 3%;
+}
 
 .crud-table {
   width: 100%;

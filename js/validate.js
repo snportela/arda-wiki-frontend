@@ -9,6 +9,7 @@ async function validateUser() {
 
     if (response.status !== 200) {
       window.location.assign("login.html");
+      localStorage.clear();
     }
   } catch (error) {
     console.log(error);
@@ -20,7 +21,7 @@ validateUser();
 const logoutBtn = document.querySelector(".logout-btn");
 
 logoutBtn.onclick = () => {
-  localStorage.removeItem("accessToken");
+  localStorage.clear();
 };
 
-if(!localStorage.getItem("accessToken")) window.location.assign("login.html");
+if (!localStorage.getItem("accessToken")) window.location.assign("login.html");

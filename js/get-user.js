@@ -1,19 +1,22 @@
-const url = "http://localhost:5000/api/";
+let url = "http://localhost:5000/api/";
+const id = localStorage.getItem("user_id");
+const authToken = localStorage.getItem("accessToken");
 const p = document.querySelector(".welcome-text");
 
 async function getUserData() {
   try {
-    const response = await fetch(`${url}users/user_data`, {
+    const response = await fetch(`${url}users/${id}`, {
       headers: {
-        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${authToken}`,
       },
     });
     const results = await response.json();
-    if(p) p.innerHTML += results.name;
+    appendData(results);
+    p.innerHTML += results.name;
   } catch (error) {
     console.log(error);
   }
 }
 
 getUserData();
-
