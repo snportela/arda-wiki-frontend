@@ -103,7 +103,7 @@
           });  
           const results = await response.json();
           if(response.status === 200) {
-            window.location.assign("admin-main.html");
+            window.location.assign("/admin/main.html");
             localStorage.setItem("accessToken", `${results.token}`);
             const userId = parseJwt(localStorage.getItem("accessToken"));
             localStorage.setItem("user_id", `${userId.user_id}`);
