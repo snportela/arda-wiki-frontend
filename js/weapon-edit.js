@@ -38,11 +38,18 @@ async function addWeapon() {
         description: descriptionInput.value,
       }),
     });
-    const results = await response.json();
-    if (response.status === 201)
+    await response.json();
+
+    if (response.ok) {
       window.location.assign("http://127.0.0.1:5500/admin/weapons-table.html");
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -59,11 +66,18 @@ async function updateWeapon() {
         description: descriptionInput.value,
       }),
     });
-    const results = await response.json();
-    if (response.status === 200)
+    await response.json();
+
+    if (response.ok) {
       window.location.assign("http://127.0.0.1:5500/admin/weapons-table.html");
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -71,13 +85,26 @@ async function getWeapon() {
   try {
     const response = await fetch(`${url}weapons/${id}`);
     const results = await response.json();
-    appendData(results);
+    
+    if (response.ok) {
+      appendData(results);
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
 function appendData(data) {
   nameInput.value = data.name;
   descriptionInput.innerHTML = data.description;
+}
+
+function logout() {
+  window.location.assign("login.html");
+  localStorage.clear();
 }

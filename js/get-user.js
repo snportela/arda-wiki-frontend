@@ -12,11 +12,24 @@ async function getUserData() {
       },
     });
     const results = await response.json();
-    appendData(results);
-    p.innerHTML += results.name;
+
+    if (response.ok) {
+      appendData(results);
+      p.innerHTML += ` ${results.name}`;
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
 getUserData();
+
+function logout() {
+  window.location.assign("login.html");
+  localStorage.clear();
+}

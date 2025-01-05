@@ -9,6 +9,7 @@ const locationInput = document.querySelector(".location-input");
 const weaponInput = document.querySelector(".weapon-input");
 const imageInput = document.querySelector(".image-input");
 const characterImg = document.querySelector(".character-img");
+
 const form = document.getElementById("edit-form");
 const editBtn = document.querySelector(".edit-confirm");
 const title = document.querySelector("h2");
@@ -40,6 +41,7 @@ async function addCharacter() {
     myFormData.append("weapon_id", `[${weaponInput.value}]`);
     myFormData.append("race_id", `${raceInput.value}`);
     if (imageInput.files[0]) myFormData.append("image", imageInput.files[0]);
+
     const response = await fetch(`${url}characters`, {
       method: "POST",
       headers: {
@@ -47,14 +49,20 @@ async function addCharacter() {
       },
       body: myFormData,
     });
-    const results = await response.json();
-    if (response.status == 201) {
+    await response.json();
+
+    if (response.ok) {
       window.location.assign(
         "http://127.0.0.1:5500/admin/characters-table.html"
       );
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
     }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -67,6 +75,7 @@ async function updateCharacter() {
     myFormData.append("weapon_id", `[${weaponInput.value}]`);
     myFormData.append("race_id", `${raceInput.value}`);
     if (imageInput.files[0]) myFormData.append("image", imageInput.files[0]);
+
     const response = await fetch(`${url}characters/${id}`, {
       method: "PUT",
       headers: {
@@ -74,14 +83,20 @@ async function updateCharacter() {
       },
       body: myFormData,
     });
-    const results = await response.json();
-    if (response.status == 200) {
+    await response.json();
+
+    if (response.ok) {
       window.location.assign(
         "http://127.0.0.1:5500/admin/characters-table.html"
       );
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
     }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -89,9 +104,17 @@ async function getCharacter() {
   try {
     const response = await fetch(`${url}characters/${id}`);
     const results = await response.json();
-    appendData(results);
+
+    if (response.ok) {
+      appendData(results);
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -102,4 +125,9 @@ function appendData(data) {
   locationInput.value = data.location_id;
   weaponInput.value = data.weapon_id;
   characterImg.src = data.image;
+}
+
+function logout() {
+  window.location.assign("login.html");
+  localStorage.clear();
 }

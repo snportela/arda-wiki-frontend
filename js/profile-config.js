@@ -14,10 +14,17 @@ async function getUserData() {
       },
     });
     const results = await response.json();
-    appendData(results);
-    console.log(results);
+
+    if (response.ok) {
+      appendData(results);
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -46,11 +53,17 @@ async function updateUserData() {
         email: emailInput.value,
       }),
     });
-    const results = await response.json();
-    if (response.status === 200)
-      window.location.assign("http://127.0.0.1:5500/admin-main.html");
-    getUserData();
+    await response.json();
+
+    if (response.ok) {
+      window.location.assign("http://127.0.0.1:5500/admin/main.html");
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }

@@ -1,20 +1,34 @@
 const url = "http://localhost:5000/api/";
+const table = document.querySelector(".crud-table");
+const tbody = document.querySelector("tbody");
+let id = "";
+
+const deleteModal = document.querySelector(".delete-modal");
+const confirmDelete = document.querySelector(".delete-confirm");
+
+const addBtn = document.querySelector(".add-btn");
+const cancelBtn = document.querySelector(".cancel-btn");
+const closeBtn = document.querySelector(".close-btn");
 
 async function displayTable() {
   try {
     const response = await fetch(`${url}periods?order=period_id`);
     const results = await response.json();
-    createRows(results);
+    
+    if (response.ok) {
+      createRows(results);
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
 displayTable();
-
-const table = document.querySelector(".crud-table");
-const tbody = document.querySelector("tbody");
-let id = "";
 
 function createRows(data) {
   data.forEach((data) => {
@@ -27,14 +41,6 @@ function createRows(data) {
         `;
   });
 }
-
-const deleteModal = document.querySelector(".delete-modal");
-const confirmDelete = document.querySelector(".delete-confirm");
-
-const addBtn = document.querySelector(".add-btn");
-
-const cancelBtn = document.querySelector(".cancel-btn");
-const closeBtn = document.querySelector(".close-btn");
 
 closeBtn.onclick = () => {
   deleteModal.style.display = "none";
@@ -61,15 +67,23 @@ function onDeleteRow(e) {
 
   confirmDelete.onclick = async function () {
     try {
-      deleteModal.style.display = "none";
       const response = await fetch(`${url}periods/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
-      const results = await response.json();
-      if (response.status === 200) row.remove();
+      await response.json();
+
+      if (response.ok) {
+        row.remove();
+        deleteModal.style.display = "none";
+      } else {
+        logout();
+        if (response.status === 403) {
+          alert("Session expired.");
+        }
+      }
     } catch (error) {
-      console.log(error);
+      logout();
     }
   };
 }
@@ -94,3 +108,8 @@ function onUpdateRow(e) {
 }
 
 table.addEventListener("click", onUpdateRow);
+
+function logout() {
+  window.location.assign("login.html");
+  localStorage.clear();
+}

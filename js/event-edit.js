@@ -40,11 +40,18 @@ async function addEvent() {
         period_id: [periodInput.value],
       }),
     });
-    const results = await response.json();
-    if (response.status === 201)
+    await response.json();
+
+    if (response.ok) {
       window.location.assign("http://127.0.0.1:5500/admin/events-table.html");
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -62,11 +69,18 @@ async function updateEvent() {
         period_id: [periodInput.value],
       }),
     });
-    const results = await response.json();
-    if (response.status === 200)
+    await response.json();
+
+    if (response.ok) {
       window.location.assign("http://127.0.0.1:5500/admin/events-table.html");
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -74,9 +88,17 @@ async function getEvent() {
   try {
     const response = await fetch(`${url}events/${id}`);
     const results = await response.json();
-    appendData(results);
+
+    if (response.ok) {
+      appendData(results);
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -84,4 +106,9 @@ function appendData(data) {
   nameInput.value = data.name;
   descriptionInput.innerHTML = data.description;
   periodInput.value = data.period_id;
+}
+
+function logout() {
+  window.location.assign("login.html");
+  localStorage.clear();
 }

@@ -1,22 +1,29 @@
 const token = localStorage.getItem("accessToken");
+const userId = localStorage.getItem("user_id");
+
+if (!token || !userId) {
+  logout();
+} else {
+  validateUser();
+}
 
 async function validateUser() {
   try {
     const response = await fetch("http://localhost:5000/api/users", {
       headers: new Headers({ Authorization: `Bearer ${token}` }),
     });
-    const results = await response.json();
+    await response.json();
 
-    if (response.status !== 200) {
-      window.location.assign("login.html");
-      localStorage.clear();
+    if (!response.ok) {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
     }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
-
-validateUser();
 
 const logoutBtn = document.querySelector(".logout-btn");
 
@@ -24,4 +31,7 @@ logoutBtn.onclick = () => {
   localStorage.clear();
 };
 
-if (!localStorage.getItem("accessToken")) window.location.assign("login.html");
+function logout() {
+  window.location.assign("login.html");
+  localStorage.clear();
+}

@@ -43,11 +43,20 @@ async function addLocation() {
       },
       body: myFormData,
     });
-    const results = await response.json();
-    if (response.status == 201)
-      window.location.assign("http://127.0.0.1:5500/admin/locations-table.html");
+    await response.json();
+    
+    if (response.ok) {
+      window.location.assign(
+        "http://127.0.0.1:5500/admin/locations-table.html"
+      );
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -58,6 +67,7 @@ async function updateLocation() {
     myFormData.append("description", descriptionInput.value);
     myFormData.append("race_id", `[${raceInput.value}]`);
     if (imageInput.files[0]) myFormData.append("image", imageInput.files[0]);
+
     const response = await fetch(`${url}locations/${id}`, {
       method: "PUT",
       headers: {
@@ -65,11 +75,20 @@ async function updateLocation() {
       },
       body: myFormData,
     });
-    const results = await response.json();
-    if (response.status == 200)
-      window.location.assign("http://127.0.0.1:5500/admin/locations-table.html");
+    await response.json();
+
+    if (response.ok) {
+      window.location.assign(
+        "http://127.0.0.1:5500/admin/locations-table.html"
+      );
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -77,9 +96,17 @@ async function getLocation() {
   try {
     const response = await fetch(`${url}locations/${id}`);
     const results = await response.json();
-    appendData(results);
+
+    if (response.ok) {
+      appendData(results);
+    } else {
+      logout();
+      if (response.status === 403) {
+        alert("Session expired.");
+      }
+    }
   } catch (error) {
-    console.log(error);
+    logout();
   }
 }
 
@@ -88,4 +115,9 @@ function appendData(data) {
   descriptionInput.innerHTML = data.description;
   raceInput.value = data.race_id;
   locationImg.src = data.image;
+}
+
+function logout() {
+  window.location.assign("login.html");
+  localStorage.clear();
 }
