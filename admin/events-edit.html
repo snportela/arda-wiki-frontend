@@ -76,9 +76,17 @@
       <div class="form-session">
         <form id="edit-form">
           <h2>Add Event</h2>
+
           <div class="edit-input">
             <label for="name-input">Name</label>
-            <input type="text" autocomplete="off" class="name-input" required />
+            <input type="text" autocomplete="off" class="name-input" />
+            <div class="error"></div>
+          </div>
+
+          <div class="edit-input">
+            <label for="date-input">Date</label>
+            <input type="text" autocomplete="off" class="date-input" />
+            <div class="error"></div>
           </div>
 
           <div class="edit-input">
@@ -90,22 +98,36 @@
               rows="10"
               autocomplete="off"
               class="description-input"
-              required
             >
             </textarea>
+            <div class="error"></div>
           </div>
 
-          <div class="edit-input">
-            <label for="period-input">Period ID</label>
-            <input
-              type="text"
-              autocomplete="off"
-              class="period-input"
-              required
-            />
+          <label for="period-input">Period</label>
+          <p class="period-value current-value">Current period:</p>
+          <p class="selected-value"></p>
+
+          <div class="select-box">
+            <button type="button" class="period-selector selector">
+              Select period(s)
+              <img src="/imgs/icons8-ordem-descendente-30.png" alt="" />
+            </button>
+
+            <div class="period-checkboxes checkboxes"></div>
+            <div class="error"></div>
           </div>
 
           <button type="submit" class="edit-confirm">Add</button>
+
+          <div class="success-message">
+            <img
+              src="/imgs/icons8-ok-64.png"
+              alt="success-icon"
+              style="height: 22px"
+              width="22px"
+            />
+            <p>Event added successfully!</p>
+          </div>
         </form>
       </div>
     </div>

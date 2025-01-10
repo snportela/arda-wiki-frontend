@@ -6,27 +6,37 @@ const nameInput = document.querySelector(".name-input");
 const descriptionInput = document.querySelector(".description-input");
 const form = document.getElementById("edit-form");
 const editBtn = document.querySelector(".edit-confirm");
+const successMessage = document.querySelector(".success-message");
+const successText = document.querySelector(".success-message p");
 const title = document.querySelector("h2");
 
-if (!id) {
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    addRace();
-  });
-}
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const isValid = formValidator();
+
+  if (isValid) {
+    if (!id) {
+      addRace();
+    } else {
+      updateRace();
+    }
+  }
+});
 
 if (id) {
   getRace();
   title.innerText = "Update";
   editBtn.innerText = "Update";
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    updateRace();
-  });
+  successText.innerText = "Race updated successfully!";
 }
 
 async function addRace() {
   try {
+    if (editBtn.textContent !== "Add") {
+      return;
+    }
+
     const response = await fetch(`${url}races`, {
       method: "POST",
       headers: {
@@ -40,8 +50,18 @@ async function addRace() {
     });
     await response.json();
 
+    editBtn.textContent = "Adding...";
+    editBtn.classList.add("disabled");
+    successMessage.style.display = "none";
+
     if (response.ok) {
-      window.location.assign("http://127.0.0.1:5500/admin/races-table.html");
+      setTimeout(() => {
+        editBtn.textContent = "Add";
+        editBtn.classList.remove("disabled");
+        successMessage.style.display = "flex";
+        nameInput.value = "";
+        descriptionInput.value = "";
+      }, 1000);
     } else {
       logout();
       if (response.status === 403) {
@@ -55,6 +75,9 @@ async function addRace() {
 
 async function updateRace() {
   try {
+    if (editBtn.textContent !== "Update") {
+      return;
+    }
     const response = await fetch(`${url}races/${id}`, {
       method: "PUT",
       headers: {
@@ -68,8 +91,16 @@ async function updateRace() {
     });
     await response.json();
 
+    editBtn.textContent = "Updating...";
+    editBtn.classList.add("disabled");
+    successMessage.style.display = "none";
+
     if (response.ok) {
-      window.location.assign("http://127.0.0.1:5500/admin/races-table.html");
+      setTimeout(() => {
+        editBtn.textContent = "Update";
+        editBtn.classList.remove("disabled");
+        successMessage.style.display = "flex";
+      }, 1000);
     } else {
       logout();
       if (response.status === 403) {
@@ -107,4 +138,36 @@ function appendData(data) {
 function logout() {
   window.location.assign("login.html");
   localStorage.clear();
+}
+
+function formValidator() {
+  let error = 0;
+
+  if (nameInput.value === "") {
+    setErrorFor(nameInput, "Please enter an name.");
+    error++;
+  } else {
+    setSuccessFor(nameInput);
+  }
+
+  if (descriptionInput.value < 1) {
+    setErrorFor(descriptionInput, "Please enter an description.");
+    error++;
+  } else {
+    setSuccessFor(descriptionInput);
+  }
+  if (error == 0) return true;
+}
+
+function setErrorFor(input, message) {
+  const inputBox = input.parentElement;
+  const error = inputBox.querySelector(".error");
+  error.style.display = "block";
+  error.innerText = message;
+}
+
+function setSuccessFor(input) {
+  const inputBox = input.parentElement;
+  const error = inputBox.querySelector(".error");
+  error.style.display = "none";
 }

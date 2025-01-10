@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/styles.css" />
-    <link rel="stylesheet" href="/css/admin/nav.css">
-    <link rel="stylesheet" href="/css/admin/edit-page.css">
+    <link rel="stylesheet" href="/css/admin/nav.css" />
+    <link rel="stylesheet" href="/css/admin/edit-page.css" />
     <link rel="icon" href="/imgs/silmaril-icon-removebg-preview.png" />
     <title>Arda Wiki</title>
   </head>
@@ -73,29 +73,38 @@
         </nav>
       </aside>
 
-        <div class="form-session">
+      <div class="form-session">
         <form id="edit-form">
           <h2>Profile settings</h2>
+
           <div class="edit-input">
             <label for="name-input">Name</label>
-            <input type="text" autocomplete="off" class="name-input" required />
+            <input type="text" autocomplete="off" class="name-input" />
+            <div class="error"></div>
           </div>
-  
+
           <div class="edit-input">
-              <label for="email-input">Email</label>
-              <input type="text" autocomplete="off" class="email-input" required />
-            </div>
-                 
+            <label for="email-input">Email</label>
+            <input type="text" autocomplete="off" class="email-input" />
+            <div class="error"></div>
+          </div>
+
           <button type="submit" class="edit-confirm">Edit</button>
 
+          <div class="success-message">
+            <img
+              src="/imgs/icons8-ok-64.png"
+              alt="success-icon"
+              style="height: 22px"
+              width="22px"
+            />
+            <p>Data updated successfully!</p>
+          </div>
         </form>
       </div>
-     
-      </div>
     </div>
-    
+
     <script src="/js/validate.js"></script>
     <script src="/js/profile-config.js"></script>
-
   </body>
 </html>

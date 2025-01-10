@@ -76,9 +76,11 @@
       <div class="form-session">
         <form id="edit-form">
           <h2>Add Location</h2>
+
           <div class="edit-input">
             <label for="name-input">Name</label>
-            <input type="text" autocomplete="off" class="name-input" required />
+            <input type="text" autocomplete="off" class="name-input" />
+            <div class="error"></div>
           </div>
 
           <div class="edit-input">
@@ -90,23 +92,53 @@
               rows="10"
               autocomplete="off"
               class="description-input"
-              required
             >
             </textarea>
+            <div class="error"></div>
           </div>
 
-          <div class="edit-input">
-            <label for="race-input">Races ID</label>
-            <input type="text" autocomplete="off" class="race-input" required />
+          <label for="race-input">Race</label>
+          <p class="race-value current-value">Current race(s):</p>
+
+          <div class="select-box">
+            <button type="button" class="race-selector selector">
+              Select race(s)
+              <img src="/imgs/icons8-ordem-descendente-30.png" alt="" />
+            </button>
+
+            <div class="race-checkboxes checkboxes"></div>
+            <div class="error"></div>
           </div>
 
           <div class="edit-input img-container">
             <label for="image-input">Image</label>
-            <input type="file" class="image-input" />
-            <img class="location-img" src="" alt="" srcset="" />
+            <div class="img-box">
+              <img class="location-img" src="" alt="" srcset="" />
+              <input
+                type="file"
+                class="image-input"
+                id="img"
+                style="display: none"
+              />
+              <div class="error"></div>
+              <div class="image-btns">
+                <label for="img" class="img-selector">Select new image</label>
+                <button type="button" class="delete-img">Delete image</button>
+              </div>
+            </div>
           </div>
 
           <button type="submit" class="edit-confirm">Add</button>
+
+          <div class="success-message">
+            <img
+              src="/imgs/icons8-ok-64.png"
+              alt="success-icon"
+              style="height: 22px"
+              width="22px"
+            />
+            <p>Location added successfully!</p>
+          </div>
         </form>
       </div>
     </div>

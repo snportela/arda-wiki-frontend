@@ -78,7 +78,8 @@
           <h2>Add Period</h2>
           <div class="edit-input">
             <label for="name-input">Name</label>
-            <input type="text" autocomplete="off" class="name-input" required />
+            <input type="text" autocomplete="off" class="name-input" />
+            <div class="error"></div>
           </div>
 
           <div class="edit-input">
@@ -90,12 +91,22 @@
               rows="10"
               autocomplete="off"
               class="description-input"
-              required
             >
             </textarea>
+            <div class="error"></div>
           </div>
 
           <button type="submit" class="edit-confirm">Add</button>
+
+          <div class="success-message">
+            <img
+              src="/imgs/icons8-ok-64.png"
+              alt="success-icon"
+              style="height: 22px"
+              width="22px"
+            />
+            <p>Period added successfully!</p>
+          </div>
         </form>
       </div>
     </div>
