@@ -4,7 +4,7 @@ let page = path.substring(1, path.length - 5);
 
 const urlParams = new URLSearchParams(location.search);
 const weapon_id = urlParams.get("weapon_id");
-let mainContainer = document.querySelector(".simple-page");
+let mainContainer = document.querySelector(".page");
 
 async function getWeapon() {
   try {

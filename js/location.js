@@ -25,9 +25,11 @@ function appendData(data) {
   let caption = mainContainer.querySelector("figcaption");
   let race = mainContainer.querySelector("td");
 
+  const raceData = data.race;
+
   title.textContent = data.name;
   description.textContent = data.description;
   img.src = data.image;
   caption.textContent = data.name;
-  race.textContent = data.race;
+  race.textContent = raceData.substring(1, raceData.length - 1);
 }

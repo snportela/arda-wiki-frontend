@@ -27,11 +27,17 @@ function appendData(data) {
   let race = mainContainer.querySelectorAll("td")[1];
   let weapon = mainContainer.querySelectorAll("td")[2];
 
+  const locationData = data.location;
+  const weaponData = data.weapon;
+
   title.textContent = data.name;
   description.textContent = data.description;
   img.src = data.image;
   caption.textContent = data.name;
-  location.textContent = data.location;
+  location.textContent = locationData.substring(1, locationData.length - 1);
   race.textContent = data.race;
-  weapon.textContent = data.weapon;
+  weapon.textContent = weaponData.substring(1, weaponData.length - 1);
+
+  if(weapon.textContent === "NULL") weapon.remove();
+  if(location.textContent === "NULL") location.remove();
 }

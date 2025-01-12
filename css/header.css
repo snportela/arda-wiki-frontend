@@ -1,0 +1,68 @@
+.header {
+    height: 50vh;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .main-header {
+    background-image: var(--main-header);
+  }
+  
+  .character-header {
+    background-image: var(--character-header);
+    background-position: bottom;
+  }
+  
+  .location-header {
+    background-image: var(--location-header);
+    background-position: bottom;
+  }
+  
+  .races-header {
+    background-image: var(--races-header);
+    background-position: 0 -3.75rem;
+  }
+  
+  .events-header {
+    background-image: var(--events-header);
+  }
+  
+  .periods-header {
+    background-image: var(--periods-header);
+  }
+  
+  .weapons-header {
+    background-image: var(--weapons-header);
+    background-position: center;
+  }
+  
+  .container-background {
+    background: rgba(0, 0, 0, 0.65);
+    box-shadow: inset 0 0 10rem 0 black;
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .header-logo {
+    height: 70%;
+  }
+  
+  .container-background h1 {
+    color: var(--g100);
+  }
+  
+  @media screen and (max-width: 1180px) {
+    .races-header {
+      background-position-x: 50%;
+      background-position-y: 0;
+      
+    }
+  }

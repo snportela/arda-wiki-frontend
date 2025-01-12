@@ -5,14 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arda Wiki</title>
-    <link rel="stylesheet" href="/css/styles.css"/>
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/header.css" />
     <link rel="icon" href="/imgs/silmaril-icon-removebg-preview.png" />
   </head>
   <body>
     <main>
       <div class="nav">
         <a href="#home" class="logo"></a>
+        <button class="expand-button"></button>
         <div id="home" class="menu">
           <a href="/characters.html">Characters</a>
           <a href="/locations.html">Locations</a>
@@ -21,6 +25,7 @@
           <a href="/periods.html">Periods</a>
           <a href="/weapons.html">Weapons</a>
         </div>
+
         <div class="search-container">
           <form action="/results.html">
             <input
@@ -30,7 +35,6 @@
               class="search"
             />
             <a class="search-btn"></a>
-          </form>
           </form>
         </div>
       </div>
@@ -65,16 +69,12 @@
             >
           </p>
           <p>- Ilúvatar in Of the Beginning of Days</p>
-          <hr>
+          <hr />
         </div>
 
         <div class="article-section">
           <div class="divider"><h2>Latest Articles</h2></div>
-          <div class="home-articles">
-        </div>
-        
-         
-        </div>
+          <div class="home-articles"></div>
         </div>
       </div>
     </main>
@@ -107,5 +107,6 @@
     <script src="/js/year.js"></script>
     <script src="/js/search.js"></script>
     <script src="/js/home.js"></script>
+    <script src="/js/expand-menu.js"></script>
   </body>
 </html>

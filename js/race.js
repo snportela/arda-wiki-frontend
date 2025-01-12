@@ -4,7 +4,7 @@ let page = path.substring(1, path.length - 5);
 
 const urlParams = new URLSearchParams(location.search);
 const race_id = urlParams.get("race_id");
-let mainContainer = document.querySelector(".simple-page");
+let mainContainer = document.querySelector(".page");
 
 async function getRace() {
   try {

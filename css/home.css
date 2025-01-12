@@ -1,0 +1,93 @@
+.home-content {
+    color: var(--g50);
+    background-color: var(--g600);
+  }
+  
+  .summary {
+    color: var(--g100);
+    font-size: clamp(0.75rem, 2vw, 2rem);
+    padding: 2% 5%;
+    text-align: center;
+  }
+  
+  .home-content h2 {
+    text-align: center;
+  }
+  
+  .quote {
+    margin: 5%;
+    font-size: clamp(0.75rem, 2vw, 1.25rem);
+    padding: 2% 0 5% 0;
+  }
+  
+  .quote p {
+    text-align: center;
+    padding-bottom: 1%;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  .divider::before,
+  .divider::after {
+    display: block;
+    content: "";
+    height: 1px;
+    width: 100%;
+    background-color: var(--g100);
+  }
+  
+  /* cards */
+  
+  .article-section {
+    background-color: var(--g900);
+    padding: 2% 7%;
+  }
+  
+  .divider h2 {
+    font-size: clamp(1rem, 2vw, 2rem);
+  }
+  
+  .home-articles {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2% 5%;
+    overflow: hidden;
+  }
+  
+  .home-card {
+    position: relative;
+    color: var(--g100);
+    border-radius: 20px;
+    font-size: 1.25rem;
+    height: 50vh;
+  }
+  
+  .home-card img {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    border-radius: 20px;
+  }
+  
+  .home-card p {
+    position: absolute;
+    padding: 2% 5%;
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 0.719);
+  }
+  
+  @media screen and (max-width: 1180px) {
+    .home-articles {
+      flex-direction: column;
+      padding: 10%;
+    }
+  }

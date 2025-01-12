@@ -4,7 +4,7 @@ let page = path.substring(1, path.length - 5);
 
 const urlParams = new URLSearchParams(location.search);
 const period_id = urlParams.get("period_id");
-let mainContainer = document.querySelector(".simple-page");
+let mainContainer = document.querySelector(".page");
 
 async function getPeriod() {
   try {

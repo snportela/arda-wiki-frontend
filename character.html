@@ -5,14 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arda Wiki</title>
-    <link rel="stylesheet" href="/css/styles.css"/>
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
     <link rel="icon" href="/imgs/silmaril-icon-removebg-preview.png" />
   </head>
   <body>
     <main>
       <div class="nav">
         <a href="#home" class="logo"></a>
+        <button class="expand-button"></button>
         <div id="home" class="menu">
           <a href="/index.html">Home</a>
           <a href="/characters.html">Characters</a>
@@ -36,33 +38,34 @@
       </div>
 
       <div class="page">
+        <h1></h1>
         <div class="info">
-          <h1></h1>
           <p></p>
-        </div>
-        <div class="card">
-          <figure>
-            <img src="" alt="" />
-            <figcaption></figcaption>
-          </figure>
 
-          <table class="extra-info">
-            <tr>
-              <th colspan="2" class="first-h">General Information</th>
-            </tr>
-            <tr>
-              <th>Location</th>
-              <td></td>
-            </tr>
-            <tr>
-              <th>Race</th>
-              <td></td>
-            </tr>
-            <tr>
-              <th>Weapon</th>
-              <td></td>
-            </tr>
-          </table>
+          <div class="card">
+            <figure>
+              <img src="" alt="" />
+              <figcaption></figcaption>
+            </figure>
+
+            <table class="extra-info">
+              <tr>
+                <th colspan="2" class="first-h">General Information</th>
+              </tr>
+              <tr>
+                <th>Location</th>
+                <td></td>
+              </tr>
+              <tr>
+                <th>Race</th>
+                <td></td>
+              </tr>
+              <tr>
+                <th>Weapon</th>
+                <td></td>
+              </tr>
+            </table>
+          </div>
         </div>
       </div>
     </main>
@@ -95,5 +98,6 @@
     <script src="/js/year.js"></script>
     <script src="/js/character.js"></script>
     <script src="/js/search.js"></script>
+    <script src="/js/expand-menu.js"></script>
   </body>
 </html>
