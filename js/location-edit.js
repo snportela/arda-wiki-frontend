@@ -68,6 +68,8 @@ async function addLocation() {
         nameInput.value = "";
         descriptionInput.value = "";
         locationImg.style.display = "none";
+        locationImg.src = "";
+        imageInput.value = "";
       }, 1000);
     } else {
       logout();
@@ -190,7 +192,7 @@ function formValidator() {
   }
 
   if (!id) {
-    if (imageInput.value === "") {
+    if (imageInput.value === "" || !locationImg.src) {
       setErrorFor(imageInput, "Please select a image.");
       error++;
     } else {

@@ -74,6 +74,8 @@ async function addCharacter() {
         descriptionInput.value = "";
         selectedRaceValue.remove();
         characterImg.style.display = "none";
+        characterImg.src = "";
+        imageInput.value = "";
       }, 1000);
     } else {
       logout();
@@ -211,7 +213,7 @@ function formValidator() {
   }
 
   if (!id) {
-    if (imageInput.value === "") {
+    if (imageInput.value === "" || !characterImg.src) {
       setErrorFor(imageInput, "Please select a image.");
       error++;
     } else {
