@@ -27,6 +27,10 @@ function appendData(data) {
   let race = mainContainer.querySelectorAll("td")[1];
   let weapon = mainContainer.querySelectorAll("td")[2];
 
+  const locationLabel = mainContainer.querySelectorAll("th")[1];
+  const raceLabel = mainContainer.querySelectorAll("th")[2];
+  const weaponLabel = mainContainer.querySelectorAll("th")[3];
+
   const locationData = data.location;
   const weaponData = data.weapon;
 
@@ -38,6 +42,16 @@ function appendData(data) {
   race.textContent = data.race;
   weapon.textContent = weaponData.substring(1, weaponData.length - 1);
 
-  if(weapon.textContent === "NULL") weapon.remove();
-  if(location.textContent === "NULL") location.remove();
+  if (weapon.textContent === "NULL") {
+    weapon.remove();
+    weaponLabel.remove();
+  }
+  if (race.textContent === "NULL") {
+    race.remove();
+    raceLabel.remove();
+  }
+  if (location.textContent === "NULL") {
+    location.remove();
+    locationLabel.remove();
+  }
 }

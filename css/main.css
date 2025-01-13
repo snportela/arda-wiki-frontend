@@ -1,11 +1,11 @@
 main {
-  min-height: 100vh;
-  background-color: var(--g600);
+  background-color: var(--g950);
 }
 
 .content {
   padding: 5%;
   background-color: var(--g600);
+  min-height: 50vh;
 }
 
 .list {
@@ -42,7 +42,7 @@ main {
 
 .item img {
   overflow: hidden;
-  height: 12.5rem;
+  height: 15rem;
 }
 
 /* article pages */
@@ -70,6 +70,7 @@ main {
 
 .info p {
   flex: 75%;
+  text-align: justify;
 }
 
 .card {
@@ -82,6 +83,7 @@ main {
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   max-width: 25%;
   max-height: 100vh;
+  margin: 0 5%;
 }
 
 .card img {
@@ -110,6 +112,7 @@ figcaption {
 
 .results {
   padding: 2%;
+  background-color: var(--g600);
 }
 
 .results a {
@@ -152,7 +155,6 @@ figcaption {
   }
 
   .info p {
-    text-align: center;
     text-align: justify;
   }
 
@@ -160,5 +162,9 @@ figcaption {
     max-width: 80%;
     max-height: 70vh;
     margin: 10% auto;
+  }
+
+  .extra-info {
+    font-size: smaller;
   }
 }

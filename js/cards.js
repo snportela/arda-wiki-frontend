@@ -6,7 +6,7 @@ let myUrl = "http://localhost:5500/";
 
 async function getCards() {
   try {
-    const response = await fetch(`${url}${page}`);
+    const response = await fetch(`${url}${page}?order=name`);
     const results = await response.json();
     appendData(results);
   } catch (error) {
