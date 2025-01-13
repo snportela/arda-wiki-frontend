@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arda Wiki Register</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/admin/login.css" />
+    <link rel="icon" href="/imgs/silmaril-icon-removebg-preview.png" />
+  </head>
+  <body>
+    <div class="login-page">
+      <div class="login-container">
+        <form id="login-form">
+          <h1>Register</h1>
+
+          <div class="input-container">
+            <div class="input-box">
+              <input
+                type="text"
+                placeholder="Name"
+                autocomplete="off"
+                class="name"
+              />
+              <img
+                src="/imgs/PngItem_2560255.png"
+                alt=""
+                width="15px"
+                height="15px"
+              />
+            </div>
+            <div class="error"></div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-box">
+              <input
+                type="text"
+                placeholder="Email"
+                autocomplete="off"
+                class="email"
+              />
+              <img
+                src="/imgs/icons8-nova-mensagem-24.png"
+                alt=""
+                width="15px"
+                height="15px"
+              />
+            </div>
+            <div class="error"></div>
+          </div>
+
+          <div class="input-container">
+            <div class="input-box">
+              <input
+                type="password"
+                placeholder="Password"
+                autocomplete="off"
+                class="password"
+              />
+              <img
+                src="/imgs/PngItem_4015782.png"
+                alt=""
+                width="15px"
+                height="15px"
+              />
+            </div>
+            <div class="error incorrect">Incorrect email or password!</div>
+            <div class="error"></div>
+          </div>
+
+          <button type="submit" class="submit-btn">Register</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="/js/register.js"></script>
+  </body>
+</html>
