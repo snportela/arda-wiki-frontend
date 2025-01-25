@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-     <a href="BACKEND__URL">📱 Backend for this Project</a>
+     <a href="BACKEND">📱 Backend for this Project</a>
 </p>
 
 <h2 id="layout">🎨 Layout</h2>
