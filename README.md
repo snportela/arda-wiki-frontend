@@ -61,5 +61,5 @@
 <h3>Cloning</h3>
 
 ```bash
-git https://github.com/snportela/arda-wiki-frontend
+git clone https://github.com/snportela/arda-wiki-frontend
 ```
