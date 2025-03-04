@@ -1,7 +1,6 @@
 [JAVASCRIPT__BADGE]: https://img.shields.io/badge/Javascript-000?style=for-the-badge&logo=javascript
 [CSS3]: https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white
 [HTML5]: https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white
-[BACKEND]: https://github.com/snportela/arda-wiki-backend
 
 <h1 align="center" style="font-weight: bold;">Arda Wiki Frontend 💻</h1>
 
@@ -10,7 +9,7 @@
 </p>
 
 <p align="center">
-     <a href="BACKEND__URL">📱 Backend for this Project</a>
+          <a href="https://github.com/snportela/arda-wiki-backend">📱 Backend for this Project</a>
 </p>
 
 <h2 id="layout">🎨 Layout</h2>
@@ -62,5 +61,5 @@
 <h3>Cloning</h3>
 
 ```bash
-git https://github.com/snportela/arda-wiki-frontend
+git clone https://github.com/snportela/arda-wiki-frontend
 ```
