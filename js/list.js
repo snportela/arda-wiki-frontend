@@ -1,8 +1,7 @@
-let url = "http://localhost:5000/api/";
-let path = location.pathname;
-let page = path.substring(1, path.length - 5);
-let single = page.substring(0, page.length - 1);
-let myUrl = "http://localhost:5500/";
+let url = "https://arda-wiki-api.onrender.com/api";
+let page = location.pathname;
+let single = page.substring(1, page.length - 1);
+let myUrl = "https://arda-wiki.pages.dev/";
 
 async function getItems() {
   try {
@@ -27,28 +26,22 @@ function appendData(data) {
     mainContainer.appendChild(a);
 
     if (single === "race") {
-      a.setAttribute(
-        "href",
-        `${myUrl}${single}.html?${single}_id=${data.race_id}`
-      );
+      a.setAttribute("href", `${myUrl}${single}?${single}_id=${data.race_id}`);
     }
     if (single === "weapon") {
       a.setAttribute(
         "href",
-        `${myUrl}${single}.html?${single}_id=${data.weapon_id}`
+        `${myUrl}${single}?${single}_id=${data.weapon_id}`
       );
     }
     if (single === "period") {
       a.setAttribute(
         "href",
-        `${myUrl}${single}.html?${single}_id=${data.period_id}`
+        `${myUrl}${single}?${single}_id=${data.period_id}`
       );
     }
     if (single === "event") {
-      a.setAttribute(
-        "href",
-        `${myUrl}${single}.html?${single}_id=${data.event_id}`
-      );
+      a.setAttribute("href", `${myUrl}${single}?${single}_id=${data.event_id}`);
     }
   });
 }

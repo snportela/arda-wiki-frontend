@@ -1,4 +1,4 @@
-const url = "http://localhost:5000/api/";
+const url = "https://arda-wiki-api.onrender.com/api/";
 const table = document.querySelector(".crud-table");
 const tbody = document.querySelector("tbody");
 let id = "";

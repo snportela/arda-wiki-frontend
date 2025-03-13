@@ -1,4 +1,4 @@
-let url = "http://localhost:5000/api/";
+let url = "https://arda-wiki-api.onrender.com/api";
 let path = location.pathname;
 let page = path.substring(1, path.length - 5);
 
@@ -8,7 +8,7 @@ let mainContainer = document.querySelector(".page");
 
 async function getCharacters() {
   try {
-    const response = await fetch(`${url}characters/${character_id}`);
+    const response = await fetch(`${url}/characters/${character_id}`);
     const results = await response.json();
     appendData(results);
   } catch (error) {

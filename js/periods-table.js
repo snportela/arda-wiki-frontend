@@ -1,4 +1,4 @@
-const url = "http://localhost:5000/api/";
+const url = "https://arda-wiki-api.onrender.com/api/";
 const table = document.querySelector(".crud-table");
 const tbody = document.querySelector("tbody");
 let id = "";
@@ -14,7 +14,7 @@ async function displayTable() {
   try {
     const response = await fetch(`${url}periods?order=period_id`);
     const results = await response.json();
-    
+
     if (response.ok) {
       createRows(results);
     } else {

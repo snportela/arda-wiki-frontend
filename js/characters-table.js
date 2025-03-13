@@ -1,4 +1,4 @@
-const url = "http://localhost:5000/api/";
+const url = "https://arda-wiki-api.onrender.com/api/";
 
 const table = document.querySelector(".crud-table");
 const tbody = document.querySelector("tbody");
@@ -15,7 +15,7 @@ async function displayTable() {
   try {
     const response = await fetch(`${url}characters?order=character_id`);
     const results = await response.json();
-    
+
     if (response.ok) {
       createRows(results);
     } else {
@@ -73,7 +73,7 @@ function onDeleteRow(e) {
         headers: { Authorization: `Bearer ${token}` },
       });
       await response.json();
-      
+
       if (response.ok) {
         row.remove();
         deleteModal.style.display = "none";

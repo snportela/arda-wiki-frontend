@@ -4,7 +4,7 @@ const emailInput = document.querySelector(".email-input");
 const submitButton = form.querySelector(".edit-confirm");
 const successMessage = document.querySelector(".success-message");
 
-let url = "http://localhost:5000/api/";
+let url = "https://arda-wiki-api.onrender.com/api/";
 const id = localStorage.getItem("user_id");
 const authToken = localStorage.getItem("accessToken");
 

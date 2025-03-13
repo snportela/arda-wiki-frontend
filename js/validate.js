@@ -9,9 +9,12 @@ if (!token || !userId) {
 
 async function validateUser() {
   try {
-    const response = await fetch(`http://localhost:5000/api/users/${userId}`, {
-      headers: new Headers({ Authorization: `Bearer ${token}` }),
-    });
+    const response = await fetch(
+      `https://arda-wiki-api.onrender.com/api/users/${userId}`,
+      {
+        headers: new Headers({ Authorization: `Bearer ${token}` }),
+      }
+    );
     await response.json();
 
     if (!response.ok) {

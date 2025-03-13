@@ -1,4 +1,4 @@
-const url = "http://localhost:5000/api/";
+const url = "https://arda-wiki-api.onrender.com/api/";
 const searchParams = new URLSearchParams(window.location.search);
 const id = searchParams.get("period_id");
 
